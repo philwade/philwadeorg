@@ -1,0 +1,11 @@
+{% if latest_posts %}
+	{% for post in latest_posts %}
+		<div class="blog_post">
+			<b>{{ post.title }}</b>
+			<br/>
+			{{ post.body }}
+		</div>
+	{% endfor %}
+{% else %}
+	No posts here.
+{% endif %}
