@@ -1,17 +1,20 @@
-<div class="blog_post">
-<b>{{ post.title }}</b>
-<br/>
-	{{ post.body }}
-</div>
-<div class="blog_comments">
-	{% for comment in post.comment_set.all %}
-		{{ comment.body }}
-		<br/>
-		-{{ comment.author }}
-		<br/>
-	{% endfor %}
-<form action="comment/" method="post">
-	<input type="text" name="body"/>
-	<input type="submit" name="Comment"/>
-</form>
-</div>
+{% extends 'includes/layout.html' %}
+{% block content %}
+	<div class="blog_post">
+	<b>{{ post.title }}</b>
+	<br/>
+		{{ post.body }}
+	</div>
+	<div class="blog_comments">
+		{% for comment in post.comment_set.all %}
+			{{ comment.body }}
+			<br/>
+			-{{ comment.author }}
+			<br/>
+		{% endfor %}
+	<form action="comment/" method="post">
+		<input type="text" name="body"/>
+		<input type="submit" name="Comment"/>
+	</form>
+	</div>
+{% endblock %}

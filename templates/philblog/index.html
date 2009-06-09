@@ -1,11 +1,14 @@
-{% if latest_posts %}
-	{% for post in latest_posts %}
-		<div class="blog_post">
-			<b>{{ post.title }}</b>
-			<br/>
-			{{ post.body }}
-		</div>
-	{% endfor %}
-{% else %}
-	No posts here.
-{% endif %}
+{% extends 'includes/layout.html' %}
+{% block content %}
+	{% if latest_posts %}
+		{% for post in latest_posts %}
+			<div class="blog_post">
+				<a class="post_title" href="{% url philblog.views.detail post.id %} ">{{ post.title }}</a>
+				<br/>
+				{{ post.body }}
+			</div>
+		{% endfor %}
+	{% else %}
+		No posts here.
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+{% include 'includes/header.html' %}
+<body>
+	{% block page_title %}<div id="page_title">phil wade dot org</div>{% endblock %}
+	<div id="center_well">
+		{% block content %}{% endblock %}
+	</div>
+	{% include 'includes/footer.html' %}
+</body>
+</html>
