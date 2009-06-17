@@ -12,10 +12,3 @@ class Post(models.Model):
 		return self.title
 	def was_published_today(self):
 		return self.pub_date.date() == datetime.date.today()
-
-class Comment(models.Model):
-	body = models.TextField()
-	post = models.ForeignKey(Post)
-	author = models.ForeignKey(User, null=True)
-	def __unicode__(self):
-		return self.body

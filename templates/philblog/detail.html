@@ -1,20 +1,36 @@
 {% extends 'includes/layout.html' %}
 {% block content %}
+{% load comments %}
 	<div class="blog_post">
 	<b>{{ post.title }}</b>
 	<br/>
 		{{ post.body }}
 	</div>
-	<div class="blog_comments">
-		{% for comment in post.comment_set.all %}
-			{{ comment.body }}
-			<br/>
-			-{{ comment.author }}
-			<br/>
+	<div id="blog_comments">
+	{% get_comment_list for post as comment_list %}
+		{% for comment in comment_list %}
+			<div class="blog_comment">
+			{{ comment.user_name }} says... <br/>
+			{{ comment.comment }}
+			</div>
 		{% endfor %}
-	<form action="comment/" method="post">
-		<input type="text" name="body"/>
-		<input type="submit" name="Comment"/>
-	</form>
+		<div id="comment_form">
+			{% get_comment_form for post as form %}
+			<form action="{% comment_form_target %}" method="POST">
+				{# TODO: make this not look like suck #}
+				{{ form.name.label }}{{ form.name }}
+				{{ form.email.label }}{{ form.email }}
+				{{ form.url.label }}{{ form.url }}
+				{{ form.comment.label }}{{ form.comment }}
+				<input type="hidden" name="next" value="{% url philblog.views.detail post.id %}"/>
+				<div style="display:none">
+					{{ form.content_type }}
+					{{ form.object_pk }}
+					{{ form.timestamp }}
+					{{ form.security_hash }}
+				</div>
+				<input type="submit" name="submit" class="submit-post" value="Submit">
+			</form>
+		</div>
 	</div>
 {% endblock %}
