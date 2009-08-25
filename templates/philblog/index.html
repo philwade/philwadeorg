@@ -6,7 +6,7 @@
 			<div class="blog_post">
 				<a class="post_title" href="{% url philblog.views.detail post.id %} ">{{ post.title }}</a>
 				<br/>
-				{{ post.body }}
+				{{ post.body|safe }}
 				{% get_comment_count for post as comment_count %}
 				<a class="post_detail" href="{% url philblog.views.detail post.id %}">{{ comment_count }} comment{{ comment_count|pluralize }}</a> 
 			</div>
