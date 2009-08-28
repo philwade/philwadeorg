@@ -4,11 +4,11 @@
 	{% if latest_posts %}
 		{% for post in latest_posts %}
 			<div class="blog_post">
-				<a class="post_title" href="{% url philblog.views.detail post.id %} ">{{ post.title }}</a>
+				<a class="post_title" href="{{ post.get_absolute_url }} ">{{ post.title }}</a>
 				<br/>
 				{{ post.body|safe }}
 				{% get_comment_count for post as comment_count %}
-				<a class="post_detail" href="{% url philblog.views.detail post.id %}">{{ comment_count }} comment{{ comment_count|pluralize }}</a> 
+				<a class="post_detail" href="{{ post.get_absolute_url }}">{{ comment_count }} comment{{ comment_count|pluralize }}</a> 
 			</div>
 		{% endfor %}
 	{% else %}

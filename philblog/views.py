@@ -9,6 +9,6 @@ def index(request):
 	latest_posts = Post.objects.all().order_by('-pub_date')[:5]
 	return render_to_response('philblog/index.html', {'latest_posts' : latest_posts})
 
-def detail(request, post_id):
-	p = get_object_or_404(Post, pk=post_id)
+def detail(request, websafe_title):
+	p = get_object_or_404(Post, websafe_title=websafe_title)
 	return render_to_response('philblog/detail.html', {'post' : p})

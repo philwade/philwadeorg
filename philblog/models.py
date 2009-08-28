@@ -17,3 +17,5 @@ class Post(models.Model):
 		unclean_title = self.title
 		self.websafe_title = unclean_title.replace(' ', '_').strip("'\",.").lower()
 		super(Post, self).save(force_insert, force_update)
+	def get_absolute_url(self):
+		return "/post/%s/" % self.websafe_title
