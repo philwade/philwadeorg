@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 
 	(r'', include('philwadeorg.philblog.urls')),
 	(r'^comments/', include('django.contrib.comments.urls')),
-	(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', 
+	(r'^rss/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', 
 		{'feed_dict':feeds}),
     # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
