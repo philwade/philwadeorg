@@ -5,6 +5,10 @@
 		{% for post in latest_posts %}
 			<div class="blog_post">
 				<a class="post_title" href="{{ post.get_absolute_url }} ">{{ post.title }}</a>
+				<div id="blog_author">
+					by {{ post.author }} | {{ post.pub_date|date:"M j, Y - h a" }}
+				</div>
+				<br/>
 				<br/>
 				{{ post.body|safe }}
 				{% get_comment_count for post as comment_count %}
