@@ -1,8 +1,8 @@
 {% extends 'includes/layout.html' %}
 {% block content %}
 {% load comments %}
-	{% if latest_posts %}
-		{% for post in latest_posts %}
+	{% if posts %}
+		{% for post in posts.object_list %}
 			<div class="blog_post">
 				<a class="post_title" href="{{ post.get_absolute_url }} ">{{ post.title }}</a>
 				<div id="blog_author">
@@ -15,6 +15,18 @@
 				<a class="post_detail" href="{{ post.get_absolute_url }}">{{ comment_count }} comment{{ comment_count|pluralize }}</a> 
 			</div>
 		{% endfor %}
+		<div class="pagination">
+			{% if posts.has_previous %}
+				<a href="{% url philblog.views.index posts.previous_page_number %}">
+					&lt; Newer Posts
+				</a>
+			{% endif %}
+			{% if posts.has_next %}
+				<a href="{% url philblog.views.index posts.next_page_number %}">
+					Older Posts >
+				</a>
+			{% endif %}
+		</div>
 	{% else %}
 		No posts here.
 	{% endif %}
