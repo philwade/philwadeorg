@@ -1,6 +1,7 @@
 {% extends 'includes/layout.html' %}
 {% block content %}
 {% load comments %}
+{% load pygment_tags %}
 	{% if posts %}
 		{% for post in posts.object_list %}
 			<div class="blog_post">
@@ -10,7 +11,7 @@
 				</div>
 				<br/>
 				<br/>
-				{{ post.body|safe }}
+				{{ post.body|pygmentize|safe }}
 				{% get_comment_count for post as comment_count %}
 				<a class="post_detail" href="{{ post.get_absolute_url }}">{{ comment_count }} comment{{ comment_count|pluralize }}</a> 
 			</div>
