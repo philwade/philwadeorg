@@ -1,17 +1,15 @@
 from django import template
 from BeautifulSoup import BeautifulSoup
-import re
 import pygments
 import pygments.lexers as lexers
 import pygments.formatters as formatters
-from pygments.formatters import HtmlFormatter
 
 register = template.Library()
 
 @register.filter(name='pygmentize')
 def pygmentize(value):
     try:
-        formatter = HtmlFormatter(style='trac')
+        formatter = formatters.HtmlFormatter(style='trac')
         tree = BeautifulSoup(value)
         for code in tree.findAll('code'): 
             if not code['class']: code['class'] = 'text'
