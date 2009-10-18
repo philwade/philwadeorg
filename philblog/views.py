@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 def index(request, page=1):
 	latest_posts = Post.objects.all().order_by('-pub_date')
-	paginator = Paginator(latest_posts, 2)
+	paginator = Paginator(latest_posts, 5)
 	try:
 		posts = paginator.page(page)
 	except (EmptyPage, InvalidPage):
