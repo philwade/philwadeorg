@@ -14,7 +14,7 @@ def pygmentize(value):
         for code in tree.findAll('code'): 
             if not code['class']: code['class'] = 'text'
             lexer = lexers.get_lexer_by_name(code['class'])
-            new_content = pygments.highlight(code.decode(), lexer, formatter)
+            new_content = pygments.highlight(code.decodeContents(), lexer, formatter)
             new_content += u"<style>%s</style>" % formatter.get_style_defs('.highlight')
             code.replaceWith ( "%s\n" % new_content )
         content = str(tree)
