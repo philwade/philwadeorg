@@ -3,7 +3,7 @@ from philwadeorg.philblog.models import Post
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.template import RequestContext
 
@@ -22,3 +22,6 @@ def detail(request, websafe_title):
     post_data = { 'post' : p }
     csrfContext = RequestContext(request, post_data)
     return render_to_response('philblog/detail.html', csrfContext)
+
+def verify(request):
+    return HttpResponse("google-site-verification: google3ce605377dd30bad.html")
