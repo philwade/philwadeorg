@@ -11,34 +11,4 @@
 	<br/>
 		{{ post.body|pygmentize|safe }}
 	</div>
-	<div id="blog_comments">
-	{% get_comment_list for post as comment_list %}
-		{% for comment in comment_list %}
-			<div class="blog_comment">
-			{{ comment.user_name }} says... <br/>
-			{{ comment.comment }}
-			</div>
-		{% endfor %}
-		<div id="comment_form">
-			{% get_comment_form for post as form %}
-			<form action="{% comment_form_target %}" method="POST">
-				{# TODO: make this not look like suck #}
-                <table>
-				<tr><td>{{ form.name.label }}</td><td>{{ form.name }}</td></tr>
-				<tr><td>{{ form.email.label }}</td><td>{{ form.email }}</td></tr>
-				<tr><td>{{ form.url.label }}</td><td>{{ form.url }}</td></tr>
-				<tr><td>{{ form.comment.label }}</td><td>{{ form.comment }}</td></tr>
-                </table>
-				<input type="hidden" name="next" value="{% url philblog.views.detail post.websafe_title %}"/>
-				<div style="display:none">
-					{{ form.content_type }}
-					{{ form.object_pk }}
-					{{ form.timestamp }}
-					{{ form.security_hash }}
-                    {% csrf_token %}
-				</div>
-				<input type="submit" name="submit" class="submit-post" value="Submit">
-			</form>
-		</div>
-	</div>
 {% endblock %}

@@ -12,8 +12,6 @@
 				<br/>
 				<br/>
 				{{ post.body|pygmentize|safe }}
-				{% get_comment_count for post as comment_count %}
-				<a class="post_detail" href="{{ post.get_absolute_url }}">{{ comment_count }} comment{{ comment_count|pluralize }}</a> 
 			</div>
 		{% endfor %}
 		<div class="pagination">
