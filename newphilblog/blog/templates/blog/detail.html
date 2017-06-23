@@ -1,0 +1,12 @@
+{% extends 'includes/layout.html' %}
+{% block content %}
+	<div class="blog_post">
+	<b>{{ post.title }}</b>
+	<div id="blog_author">
+		by {{ post.author }} | {{ post.pub_date|date:"M j, Y - h a" }}
+	</div>
+	<br/>
+	<br/>
+		{{ post.body|safe }}
+	</div>
+{% endblock %}

@@ -18,6 +18,7 @@ from django.contrib import admin
 import blog.views as blogviews
 
 urlpatterns = [
+	url(r'^$', blogviews.index, name='index'),
     url(r'^admin/', admin.site.urls),
 	url(r'^google3ce605377dd30bad.html$', blogviews.verify, name='verify'),
 	url(r'^page/(?P<page>\d+)/$', blogviews.index, name='index'),
