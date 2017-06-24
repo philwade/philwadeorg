@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from lib.feeds import LatestPosts
 import blog.views as blogviews
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
 	url(r'^google3ce605377dd30bad.html$', blogviews.verify, name='verify'),
 	url(r'^page/(?P<page>\d+)/$', blogviews.index, name='index'),
 	url(r'^post/(?P<websafe_title>.*)/$', blogviews.detail, name='detail'),
+	url(r'^rss/(?P<url>.*)/$', LatestPosts()),
 ]
