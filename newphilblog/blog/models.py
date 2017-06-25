@@ -9,7 +9,7 @@ class Post(models.Model):
     body = models.TextField()
     pub_date = models.DateTimeField('date published')
     author = models.ForeignKey(User)
-    def __unicode__(self):
+    def __str__(self):
         return self.title
     def was_published_today(self):
         return self.pub_date.date() == datetime.date.today()
