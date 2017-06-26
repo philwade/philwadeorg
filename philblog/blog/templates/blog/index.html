@@ -3,14 +3,16 @@
 {% load pygment_tags %}
 	{% if posts %}
 		{% for post in posts.object_list %}
-			<div class="blog_post">
-				<a class="post_title" href="{{ post.get_absolute_url }} ">{{ post.title }}</a>
-				<div id="blog_author">
-					by {{ post.author }} | {{ post.pub_date|date:"M j, Y - h a" }}
-				</div>
-				<br/>
-				<br/>
-				{{ post.body|pygmentize|safe }}
+			<div class="blog_post card grey lighten-3">
+                <div class="card-content">
+                    <span class="card-title"><a href="{{ post.get_absolute_url }} ">{{ post.title }}</a></span>
+                    <div id="blog_author">
+                        by {{ post.author }} | {{ post.pub_date|date:"M j, Y - h a" }}
+                    </div>
+                    <br/>
+                    <br/>
+                    {{ post.body|pygmentize|safe }}
+			    </div>
 			</div>
 		{% endfor %}
 		<div class="pagination">
