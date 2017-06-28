@@ -1,13 +1,14 @@
 {% extends 'includes/layout.html' %}
 {% load pygment_tags %}
 {% block content %}
-	<div class="blog_post">
-	<b>{{ post.title }}</b>
-	<div id="blog_author">
-		by {{ post.author }} | {{ post.pub_date|date:"M j, Y - h a" }}
-	</div>
-	<br/>
-	<br/>
-        {{ post.body|pygmentize|safe }}
+	<div class="blog_post card grey lighten-3">
+        <div class="card-content">
+            <span class="card-title">{{ post.title }}</span>
+            <div id="blog_author">
+                {{ post.pub_date|date:"M j, Y - h a" }}
+            </div>
+            <br/>
+                {{ post.body|pygmentize|safe }}
+	    </div>
 	</div>
 {% endblock %}
