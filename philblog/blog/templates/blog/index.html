@@ -7,9 +7,8 @@
                 <div class="card-content">
                     <span class="card-title"><a href="{{ post.get_absolute_url }} ">{{ post.title }}</a></span>
                     <div id="blog_author">
-                        by {{ post.author }} | {{ post.pub_date|date:"M j, Y - h a" }}
+                        {{ post.pub_date|date:"M j, Y - h a" }}
                     </div>
-                    <br/>
                     <br/>
                     {{ post.body|pygmentize|safe }}
 			    </div>
@@ -17,12 +16,12 @@
 		{% endfor %}
 		<div class="pagination">
 			{% if posts.has_previous %}
-				<a href="{% url philblog.views.index posts.previous_page_number %}">
+				<a href="{% url 'index' posts.previous_page_number %}">
 					&lt; Newer Posts
 				</a>
 			{% endif %}
 			{% if posts.has_next %}
-				<a href="{% url philblog.views.index posts.next_page_number %}">
+				<a href="{% url 'index' posts.next_page_number %}">
 					Older Posts >
 				</a>
 			{% endif %}
