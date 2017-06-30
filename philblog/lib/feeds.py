@@ -1,5 +1,5 @@
-from django.contrib.syndication.feeds import Feed
-from philwadeorg.philblog.models import Post
+from django.contrib.syndication.views import Feed
+from blog.models import Post
 
 class LatestPosts(Feed):
 	title = "phil wade dot org latest posts"
