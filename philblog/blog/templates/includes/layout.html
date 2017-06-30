@@ -2,9 +2,24 @@
 <html>
 {% include 'includes/header.html' %}
 <body class="grey lighten-5">
+	<nav class="grey lighten-1 hide-on-med-and-up">
+		<div class="nav-wrapper">
+			<a href="/" class="brand-logo right">philwade.org</a>
+			<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="side-nav" id="mobile-menu">
+            	<li><a href="http://philwade.org/resume"><i class="material-icons">loyalty</i> Resume</a></li>
+				<li><div class="divider"></div></li>
+            	<li><a href="https://github.com/philwade"><i class="material-icons">cloud_upload</i> Github</a></li>
+				<li><div class="divider"></div></li>
+            	<li><a href="http://twitter.com/phil_wade"><i class="material-icons">speaker</i> Twitter</a></li>
+				<li><div class="divider"></div></li>
+            	<li><a href="/rss/latest/"><i class="material-icons">rss_feed</i> RSS</a></li>
+			</ul>
+		</div>
+	</nav>
     <div class="row">
-        <div class="col m3 grey lighten-4">
-			I'm Phil Wade, a web developer from Buffalo.
+        <div class="col m3 grey lighten-4 hide-on-small-only">
+			I'm Phil Wade, a web developer from Buffalo, NY.
 			<br/>
 			<br/>
 			<div class="chip">
@@ -17,15 +32,15 @@
 			<div class="chip">
             	<a href="https://github.com/philwade">Github</a>
 			</div>
-            <br/>
-            <br/>
-            <a href="/rss/latest/"><img src="http://img.philwade.org/rss_feed.png"/> Subscribe to RSS</a>
+			<div class="chip">
+            	<a href="/rss/latest/">RSS</a>
+			</div>
             <br/>
             <br/>
             <a class="twitter-timeline" href="https://twitter.com/phil_wade" data-widget-id="593063735884914688">Tweets by @phil_wade</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
-        <div class="col m9">
+        <div class="col m9 s12">
             {% block content %}{% endblock %}
         </div>
     {% include 'includes/footer.html' %}

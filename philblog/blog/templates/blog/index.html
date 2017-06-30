@@ -16,14 +16,18 @@
 		{% endfor %}
 		<div class="pagination">
 			{% if posts.has_previous %}
-				<a href="{% url 'index' posts.previous_page_number %}">
-					&lt; Newer Posts
-				</a>
+                <div class="chip">
+                    <a href="{% url 'index' posts.previous_page_number %}">
+                        &lt; Newer Posts
+                    </a>
+                </div>
 			{% endif %}
 			{% if posts.has_next %}
-				<a href="{% url 'index' posts.next_page_number %}">
-					Older Posts >
-				</a>
+                <div class="chip">
+                    <a href="{% url 'index' posts.next_page_number %}">
+                        Older Posts >
+                    </a>
+                </div>
 			{% endif %}
 		</div>
 	{% else %}
