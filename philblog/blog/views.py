@@ -19,3 +19,6 @@ def index(request, page=1):
 def detail(request, websafe_title):
     p = get_object_or_404(Post, websafe_title=websafe_title)
     return render(request, 'blog/detail.html', {'post': p})
+
+def projects(request):
+    return render(request, 'blog/projects.html')

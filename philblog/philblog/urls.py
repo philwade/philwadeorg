@@ -25,4 +25,5 @@ urlpatterns = [
 	url(r'^page/(?P<page>\d+)/$', blogviews.index, name='index'),
 	url(r'^post/(?P<websafe_title>.*)/$', blogviews.detail, name='detail'),
 	url(r'^rss/(?P<url>.*)/$', LatestPosts()),
+	url(r'^projects/$', blogviews.projects),
 ]
