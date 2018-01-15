@@ -1,6 +1,41 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-{% include 'includes/header.html' %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		{% block title %}philwade.org{% endblock %}
+	</title>
+	<link href="/rss/latest/" rel="alternate" type="application/rss+xml"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="http://img.philwade.org/favicon.ico"/>
+    <meta name="author" content="phil@philwade.org"/>
+    <meta property="og:title" content="{% block metatitle %}philwade.org{% endblock %}">
+    <meta property="og:description" content="{% block description %}Phil Wade is a software developer from Buffalo, NY{% endblock %}">
+    <meta property="og:url" content="http://philwade.org">
+    <meta name="twitter:site" content="@phil_wade">
+
+        <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        $( document ).ready(function(){
+            $(".button-collapse").sideNav();
+        })
+    </script>
+    <style>
+        body .row .sidebar {
+            padding-top: 10px;
+        }
+
+        .sidebar .chip .material-icons.close {
+            float: left;
+            padding-right: 8px;
+            padding-left: 0px;
+        }
+    </style>
+</head>
 <body class="grey lighten-5">
 	<nav class="grey lighten-1 hide-on-med-and-up">
 		<div class="nav-wrapper">
