@@ -2,7 +2,7 @@
 {% load pygment_tags %}
 {% block title %}{{ post.title }} - philwade.org {% endblock %}
 {% block metatitle %}{{ post.title }}{% endblock %}
-{% block description %}{{ post.body | slice:"0:100" }}...{% endblock %}
+{% block description %}{{ post.body | slice:"0:100" | striptags }}...{% endblock %}
 {% block content %}
 	<div class="blog_post card grey lighten-3">
         <div class="card-content">
