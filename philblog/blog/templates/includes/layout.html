@@ -8,7 +8,7 @@
 	<link href="/rss/latest/" rel="alternate" type="application/rss+xml"/>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="http://img.philwade.org/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="https://img.philwade.org/favicon.ico"/>
     <meta name="author" content="phil@philwade.org"/>
     <meta property="og:title" content="{% block metatitle %}philwade.org{% endblock %}">
     <meta property="og:description" content="{% block description %}Phil Wade is a software developer from Buffalo, NY{% endblock %}">
@@ -37,6 +37,15 @@
         }
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYP46H9CKM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DYP46H9CKM');
+</script>
 <body class="grey lighten-5">
 	<nav class="grey lighten-1 hide-on-med-and-up">
 		<div class="nav-wrapper">
@@ -50,6 +59,8 @@
             	<li><a href="https://github.com/philwade"><i class="material-icons">cloud_upload</i> Github</a></li>
 				<li><div class="divider"></div></li>
             	<li><a href="http://twitter.com/phil_wade"><i class="material-icons">speaker</i> Twitter</a></li>
+				<li><div class="divider"></div></li>
+            	<li><a rel="me" href="https://sunny.garden/@pivotal"><i class="material-icons">forum</i> Mastodon</a></li>
 				<li><div class="divider"></div></li>
             	<li><a href="/projects/"><i class="material-icons">code</i> Projects</a></li>
 				<li><div class="divider"></div></li>
@@ -79,6 +90,9 @@
             	<a href="http://twitter.com/phil_wade"><i class="close material-icons">speaker</i> Twitter</a>
 			</div>
 			<div class="chip">
+            	<a rel="me" href="https://sunny.garden/@pivotal"><i class="close material-icons">forum</i> Mastodon</a></li>
+			</div>
+			<div class="chip">
             	<a href="/rss/latest/"><i class="close material-icons">rss_feed</i> RSS</a>
 			</div>
 			<div class="chip">
@@ -87,7 +101,6 @@
             <br/>
             <br/>
             <a class="twitter-timeline" href="https://twitter.com/phil_wade" data-widget-id="593063735884914688">Tweets by @phil_wade</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
         <div class="col m9 s12">
             {% block content %}{% endblock %}
