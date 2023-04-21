@@ -5,5 +5,5 @@ Django==1.11.29
 psycopg2-binary==2.8.6
 Pygments==2.2.0
 pytz==2017.2
-sqlparse==0.4.1
+sqlparse==0.4.4
 uWSGI==2.0.19.1
